@@ -20,4 +20,27 @@ describe WebPage do
       end
     end
   end
+
+  describe '.fetch_html' do
+    let(:response) { instance_double(Net::HTTPResponse) }
+
+    before do
+      allow(Net::HTTP).to receive(:get_response).and_return(response)
+      allow(response).to receive(:body).and_return(Faker::Lorem.sentences)
+    end
+
+    it 'returns html' do
+      expect(instance.fetch_html).to be_truthy
+    end
+
+    context 'with invalid url' do
+      before do
+        allow(Net::HTTP).to receive(:get_response).and_raise(Errno::EADDRNOTAVAIL)
+      end
+
+      it 'cannot get html' do
+        expect(instance.fetch_html).to be_falsey
+      end
+    end
+  end
 end

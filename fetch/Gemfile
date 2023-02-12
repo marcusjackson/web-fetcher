@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'faker', require: false
+gem 'nokogiri'
 gem 'rspec', require: false
 gem 'rubocop', require: false
 gem 'rubocop-rspec', require: false

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Represents the web pages to be fetched
+# Writes the html contents of a web page to file
 class WebPageWriter
   TEMP_DIR = 'temp'
 

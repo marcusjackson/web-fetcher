@@ -1,5 +1,7 @@
 # web-fetcher
 
+Simple ruby program to fetch the HTML of specified web pages.
+
 ### Executing the program
 
 Navigate to fetch directory.

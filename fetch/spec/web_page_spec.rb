@@ -7,15 +7,17 @@ describe WebPage do
   let(:url) { Faker::Internet.url }
   let(:instance) { described_class.new(url) }
 
-  it 'has a host' do
-    expect(instance.host).to be_truthy
-  end
+  describe '.host' do
+    it 'has a host' do
+      expect(instance.host).to be_truthy
+    end
 
-  context 'with invalid url' do
-    let(:url) { 'abc' }
+    context 'with invalid url' do
+      let(:url) { 'abc' }
 
-    it 'has empty host' do
-      expect(instance.host).to be_falsey
+      it 'has empty host' do
+        expect(instance.host).to be_falsey
+      end
     end
   end
 end

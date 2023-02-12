@@ -15,4 +15,11 @@ class WebPage
   def host
     @uri ? @uri.host : ''
   end
+
+  def fetch_html
+    response = Net::HTTP.get_response(@uri)
+    @html = response.body
+  rescue StandardError => e
+    puts "#{url}: #{e}"
+  end
 end

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  fetch:
+    build:
+      context: "./fetch"
+      dockerfile: "DockerfileCompose"
+    command: ruby main.rb
+    volumes:
+      - "./fetch:/fetch"

@@ -20,6 +20,9 @@ class WebPage
     response = Net::HTTP.get_response(@uri)
     @html = response.body
   rescue StandardError => e
-    puts "#{url}: #{e}"
+    puts <<~ERROR
+      Error (#{url}): #{e}
+
+    ERROR
   end
 end

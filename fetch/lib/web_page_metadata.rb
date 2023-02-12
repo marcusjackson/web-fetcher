@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'nokogiri'
+
 # Goes through the html contents and gets the metadata to print
 class WebPageMetadata
+  attr_reader :host, :number_of_links, :number_of_images, :last_fetch
+
   def initialize(host, html, last_fetch_at)
     @host = host
     @html = html
@@ -25,11 +29,11 @@ class WebPageMetadata
   private
 
   def find_number_of_links
-    0
+    Nokogiri::HTML.parse(@html).css('a').count
   end
 
   def find_number_of_images
-    0
+    Nokogiri::HTML.parse(@html).css('img').count
   end
 
   def find_metadata

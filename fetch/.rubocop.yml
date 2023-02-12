@@ -3,3 +3,8 @@ require:
 
 AllCops:
   NewCops: enable
+
+# It doesn't feel like this cop is encouraging something good.
+# https://stackoverflow.com/questions/67142057/rubocop-rspec-multiplememoizedhelpers-issue-on-pundit-spec-tests
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

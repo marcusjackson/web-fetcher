@@ -4,9 +4,18 @@ require_relative '../lib/web_page'
 require 'faker'
 
 describe WebPage do
-  let(:instance) { described_class.new(Faker::Internet.url) }
+  let(:url) { Faker::Internet.url }
+  let(:instance) { described_class.new(url) }
 
   it 'has a host' do
     expect(instance.host).to be_truthy
+  end
+
+  context 'with invalid url' do
+    let(:url) { 'abc' }
+
+    it 'has empty host' do
+      expect(instance.host).to be_falsey
+    end
   end
 end
